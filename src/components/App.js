@@ -1,6 +1,6 @@
 import Decentragram from '../abis/Decentragram.json'
 import React, { Component } from 'react';
-import Identicon from 'identicon.js';
+// import Identicon from 'identicon.js';
 import Navbar from './Navbar'
 import Main from './Main'
 import Web3 from 'web3';
@@ -56,7 +56,7 @@ class App extends Component {
       })
       this.setState({ loading: false})
     } else {
-      window.alert('Decentragram contract not deployed to detected network.')
+      window.alert('Decentragram contract not in detected network.')
     }
   }
 

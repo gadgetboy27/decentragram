@@ -35,11 +35,11 @@ contract Decentragram {
 
   function uploadImage(string memory _imgHash, string memory _description) public {
     // Make sure the image hash exists
-    require(bytes(_imgHash).length > 0);
+    require(bytes(_imgHash).length > 0, "Image hash cannot be empty");
     // Make sure image description exists
-    require(bytes(_description).length > 0);
+    require(bytes(_description).length > 0, "Image description cannot be empty");
     // Make sure uploader address exists
-    require(msg.sender!=address(0));
+    require(msg.sender!=address(0), "Uploader address cannot be empty");
 
     // Increment image id
     imageCount ++;
@@ -52,7 +52,7 @@ contract Decentragram {
 
   function tipImageOwner(uint _id) public payable {
     // Make sure the id is valid
-    require(_id > 0 && _id <= imageCount);
+    require(_id > 0 && _id <= imageCount, "Image id is invalid");
     // Fetch the image
     Image memory _image = images[_id];
     // Fetch the author
